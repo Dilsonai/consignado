@@ -1,0 +1,264 @@
+/* Garante que o footer fique no final da página */
+html, body {
+    height: 100%; /* Garante que a altura ocupe 100% da janela */
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 768px) {
+    .menu ul {
+        flex-direction: column; /* Alinha os itens do menu verticalmente */
+        gap: 5px; /* Reduz o espaçamento entre os itens */
+    }
+
+    .faixa-amarela {
+        flex-direction: column; /* Ajusta os itens para uma coluna em telas menores */
+        height: auto; /* Permite que a altura se ajuste automaticamente */
+        padding: 5px; /* Reduz o espaçamento lateral */
+    }
+}
+/* Corpo */
+
+body {
+    background: #abb8c3;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Organiza os elementos em uma coluna */
+    
+}
+
+
+/* Excluindo o fundo da imagem no header e footer */
+header, footer {
+    background-color: #003366; /* Azul escuro */
+    position: relative;
+    z-index: 1;
+}
+
+/* Estilo para o cabeçalho */
+header {
+    position: relative; /* Garante que o menu fique sobre a faixa */
+    z-index: 1; /* Coloca o menu acima da faixa amarela */
+    color: #003366; /* Azul escuro */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.faixa-amarela {
+    position: fixed; /* Garante que a faixa fique fixa no topo */
+    top: 0; /* Fixa no topo da página */
+    left: 0;
+    width: 100%; /* Ocupa toda a largura da página */
+    height: 60px;
+    background-color: #fcfc30; /* Fundo amarelo */
+    z-index: 10;/* Coloca a faixa abaixo do cabeçalho */;                                     
+    display: flex; /* Ativa o Flexbox */
+    justify-content: space-between; /* Espaça os itens uniformemente */
+    align-items:center;   /* Centraliza verticalmente */
+    padding: 0 20px; /* Adiciona espaçamento lateral */
+
+    margin: 0; /* Remove qualquer margem */
+
+}
+
+.logo-img {
+    height: 60px; /* Ajuste o tamanho da logo conforme necessário */
+}
+
+.menu {
+    display: flex; /* Garante que os itens do menu fiquem alinhados */
+    gap: 20px; /* Espaçamento entre os itens do menu */
+}
+
+.menu ul {
+    list-style: none; /* Remove os marcadores da lista */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Alinha os itens do menu horizontalmente */
+}
+
+.menu ul li {
+    margin: 0 15px; /* Espaçamento entre os itens */
+}
+
+.menu ul li a {
+    color: #003366; /* Azul escuro */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.125rem; /* Aumenta o tamanho da fonte */
+    padding: 10px 15px; /* Adiciona espaçamento interno */
+}
+
+.menu ul li a:hover {
+    text-decoration: underline;
+}
+
+.btn-conta {
+    background-color: #003366; /* Azul escuro */
+    color: #FFFFFF; /* Branco */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-conta:hover {
+    background-color: #002244; /* Azul mais escuro */
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #FFD700; /* Amarelo */
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: blue; 
+    text-decoration: none;
+    font-weight: 500;
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Botão de pesquisa e acesso */
+.pesquisa-acesso {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.pesquisa-acesso a {
+    color: #FFD700; /* Amarelo */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.pesquisa-acesso a:hover {
+    text-decoration: underline;
+}
+.centro-da-pagina {
+    background-image: url('./imagens/trabalhadora-negra.png');
+    width: 100%;
+    background-size: cover; /* Ajusta a imagem para cobrir toda a div */;
+    background-repeat: no-repeat; /* Evita repetição da imagem */
+    display: flex; /* Ativa o Flexbox */
+    flex-direction: column; /* Organiza os elementos em uma coluna */
+    align-items: flex-start; /* Alinha os itens à esquerda */
+    padding: 10px; /* Adiciona espaçamento interno */
+    gap: 20px; /* Adiciona espaçamento entre os elementos */
+    width: 100%; /* Faz a largura ocupar todo o espaço disponível */
+    margin-left: 0; /* Remove qualquer margem à esquerda */
+    text-align: left; /* Alinha o texto à esquerda *lmente */
+    height: 100vh; /* Faz o main ocupar toda a altura da tela */
+    background-color: #f0f0f0; /* Cor de fundo clara */
+    padding: 20px; /* Adiciona espaçamento interno */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve para destaque */
+    z-index: 2;
+
+}
+
+/* Conteúdo principal */
+main {
+    background-size: contain; /* Ajusta a imagem para caber no main */
+    background-position: center top; /* Centraliza a imagem no topo */
+    background-repeat: no-repeat; /* Evita repetição da imagem */
+    width: 100%; /* Faz o main ocupar toda a largura */
+    flex: 1; /* Faz o main ocupar o espaço restante entre a faixa amarela e o footer */
+    display: flex; /* Ativa o Flexbox */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    z-index: 0; /* Coloca o main abaixo do cabeçalho e da faixa amarela */
+}
+
+.conteudo {
+    text-align: left; /* Alinha o texto à esquerda */
+    margin-left: 20px; /* Adiciona um espaçamento à esquerda */
+    padding: 10px; /* Adiciona espaçamento interno */
+    width: 100%; /* Garante que a largura ocupe todo o espaço disponível */
+}
+
+main h1, main p {
+    color: #003366; /* Azul escuro */
+}
+
+
+/* Simulador */
+.simulador {
+    background: none;
+    text-align: left; /* Alinha o texto e os elementos internos à esquerda */
+    margin-left: 20px; /* Adiciona um espaçamento à esquerda */
+}
+
+
+.simulador label {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #003366; /* Azul escuro */
+}
+
+.simulador input {
+    width: 80%; /* Define a largura como 80% do contêiner pai */
+    max-width: 300px; /* Define um limite máximo de largura */
+
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.simulador button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #003366; /* Azul escuro */
+    color: #FFFFFF; /* Branco */
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.simulador button:hover {
+    background-color: #002244; /* Azul mais escuro */
+}
+
+/* Rodapé */
+footer {
+    background-color: #003366; /* Azul escuro */
+    color: #FFFFFF; /* Branco */
+    text-align: center;
+    padding: 20px; /* Define o padding do footer */
+    position: relative; /* Garante que o footer fique no fluxo normal da página */
+    bottom: 0; /* Remove qualquer posicionamento fixo */
+    width: 100%; /* Faz o footer ocupar toda a largura */
+}
+
+footer .logo img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
