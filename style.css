@@ -39,7 +39,7 @@ header, footer {
 /* Estilo para o cabeçalho */
 header {
     position: relative; /* Garante que o menu fique sobre a faixa */
-    z-index: 1; /* Coloca o menu acima da faixa amarela */
+    z-index: 2; /* Coloca o menu acima da faixa amarela */
     color: #003366; /* Azul escuro */
     padding: 10px 20px;
     display: flex;
@@ -57,12 +57,11 @@ header {
     width: 100%; /* Ocupa toda a largura da página */
     height: 60px;
     background-color: #fcfc30; /* Fundo amarelo */
-    z-index: 10;/* Coloca a faixa abaixo do cabeçalho */;                                     
+    z-index: 1;/* Coloca a faixa abaixo do cabeçalho */;                                     
     display: flex; /* Ativa o Flexbox */
     justify-content: space-between; /* Espaça os itens uniformemente */
     align-items:center;   /* Centraliza verticalmente */
     padding: 0 20px; /* Adiciona espaçamento lateral */
-
     margin: 0; /* Remove qualquer margem */
 
 }
@@ -71,9 +70,11 @@ header {
     height: 60px; /* Ajuste o tamanho da logo conforme necessário */
 }
 
+/* Menu */
 .menu {
     display: flex; /* Garante que os itens do menu fiquem alinhados */
     gap: 20px; /* Espaçamento entre os itens do menu */
+    z-index: 3; /* Certifique-se de que o menu tenha um z-index maior */
 }
 
 .menu ul {
@@ -96,7 +97,7 @@ header {
 }
 
 .menu ul li a:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* Sublinhar ao passar o mouse */
 }
 
 .btn-conta {
@@ -118,6 +119,19 @@ header {
     font-weight: bold;
     color: #FFD700; /* Amarelo */
 }
+/* Cabeçalho */
+header {
+    position: relative; /* Garante que o menu fique sobre a faixa */
+    z-index: 2; /* Coloca o menu acima da faixa amarela */
+    color: #003366; /* Azul escuro */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    background-color: transparent; /* Certifique-se de que o fundo do header seja transparente */
+}
+
 
 header nav ul {
     list-style: none;
@@ -180,6 +194,8 @@ header nav ul li a:hover {
 
 /* Conteúdo principal */
 main {
+    padding: 20px; /* Adiciona espaçamento interno */
+    flex: 1; /* Faz o main ocupar o espaço restante */
     background-size: contain; /* Ajusta a imagem para caber no main */
     background-position: center top; /* Centraliza a imagem no topo */
     background-repeat: no-repeat; /* Evita repetição da imagem */
@@ -208,6 +224,11 @@ main h1, main p {
     background: none;
     text-align: left; /* Alinha o texto e os elementos internos à esquerda */
     margin-left: 20px; /* Adiciona um espaçamento à esquerda */
+    color: black; /* Azul escuro */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.125rem; /* Aumenta o tamanho da fonte */
+    padding: 10px 15px; /* Adiciona espaçamento interno */
 }
 
 
@@ -246,15 +267,39 @@ footer {
     background-color: #003366; /* Azul escuro */
     color: #FFFFFF; /* Branco */
     text-align: center;
-    padding: 20px; /* Define o padding do footer */
+    padding: 5px; /* Define o padding do footer */
     position: relative; /* Garante que o footer fique no fluxo normal da página */
     bottom: 0; /* Remove qualquer posicionamento fixo */
     width: 100%; /* Faz o footer ocupar toda a largura */
 }
 
+.resultado {
+    background-color: #fcfc30; /* Cor amarela */
+    padding: 20px; /* Espaçamento interno */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve para destaque */
+    margin-top: 20px; /* Espaçamento acima do contêiner */
+    color: #003366; /* Azul escuro para o texto */
+    font-weight: bold; /* Texto em negrito */
+}
+/* Estilo para o link no resultado */
+.resultado a {
+    color: #003366; /* Azul escuro */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.125rem; /* Aumenta o tamanho da fonte */
+}
+
+.resultado a:hover {
+    color: #003366; /* Azul escuro */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.125rem; /* Aumenta o tamanho da fonte */
+    padding: 10px 15px; /* Adiciona espaçamento interno */
+}
 footer .logo img {
-    width: 30px;
-    height: 30px;
+    width: 10px;
+    height: 10px;
     margin-right: 10px;
 }
 

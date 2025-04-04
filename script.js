@@ -25,7 +25,7 @@ document.getElementById('btn-simular').addEventListener('click', (e) => {
 
     // Cálculo da taxa de juros mensal com base nos valores fornecidos
     let taxaCalculada = 0.01; // Chute inicial para a taxa
-    const maxIteracoes = 100; // Limite de iterações para evitar loops infinitos
+    const maxIteracoes = 1000; // Limite de iterações para evitar loops infinitos
     const tolerancia = 0.0001; // Tolerância para o cálculo da taxa
     let iteracoes = 0;
 
@@ -39,7 +39,7 @@ document.getElementById('btn-simular').addEventListener('click', (e) => {
         }
 
         // Ajusta a taxa com base na diferença
-        taxaCalculada += diferenca > 0 ? 0.0001 : -0.0001;
+        taxaCalculada += diferenca > 0 ? 0.00001 : -0.00001; // Incremento menor para maior precisão
         iteracoes++;
     }
 
@@ -58,16 +58,23 @@ document.getElementById('btn-simular').addEventListener('click', (e) => {
 
     console.log('Diferença entre a prestação informada e a prestação com taxa de 2,65% a.m.:', diferencaPrestacao.toFixed(2));
 
-    // Exibindo o resultado no elemento #resultado
-    document.getElementById('resultado').innerHTML = `
-        <h2>Resultado da Simulação</h2>
-        <p><strong>Valor do empréstimo:</strong> R$ ${valor.toFixed(2)}</p>
-        <p><strong>Prazo do empréstimo:</strong> ${prazo} meses</p>
-        <p><strong>Prestação mensal informada:</strong> R$ ${pm.toFixed(2)}</p>
-        <p><strong>Taxa de juros calculada:</strong> ${(taxaCalculada * 100).toFixed(2)}% a.m.</p>
-        <p><strong>Prestação mensal com taxa de 2,65% a.m.:</strong> R$ ${prestacaoPadrao.toFixed(2)}</p>
-        <p><strong>Diferença entre as prestações:</strong> R$ ${diferencaPrestacao.toFixed(2)}</p>
-        <p><small>Sujeita a variação de taxa e aprovação de crédito. Consulte mais informações em <a href="https://www.bb.com.br/site/pra-voce/contas/conta-corrente/" target="_blank">Banco do Brasil</a>.</small></p>
-    `;
+   // Exibindo o resultado no elemento #resultado
+document.getElementById('resultado').innerHTML = `
+<h2>Resultado da Simulação</h2>
+<div style="margin-bottom: 15px;">
+    <span><strong>Valor do empréstimo:</strong> R$ ${valor.toFixed(2)}</span> |
+    <span><strong>Prazo do empréstimo:</strong> ${prazo} meses</span> |
+    <span><strong>Prestação mensal informada:</strong> R$ ${pm.toFixed(2)}</span>
+</div>
+<div style="margin-bottom: 15px;">
+    <span><strong>Taxa de juros calculada:</strong> ${(taxaCalculada * 100).toFixed(2)}% a.m.</span> |
+    <span><strong>Prestação mensal com taxa de 2,65% a.m.:</strong> R$ ${prestacaoPadrao.toFixed(2)}</span> |
+    <span><strong>Diferença entre as prestações:</strong> R$ ${diferencaPrestacao.toFixed(2)}</span>
+</div>
+<div style="margin-top: 20px;">
+    <small>Sujeita a variação de taxa e aprovação de crédito. Consulte mais informações e abra a sua 
+    <a href="https://www.bb.com.br/site/pra-voce/contas/conta-corrente/" target="_blank">Banco do Brasil</a>.</small>
+</div>
+`;
     console.log('Resultado exibido com sucesso.');
 });

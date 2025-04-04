@@ -1,21 +1,17 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BANCO DO BRASIL</title>
+    <title>Simulação de Crédito - Banco do Brasil</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <nav>
-            
-
-            </div>
-            
             <div class="faixa-amarela">
                 <img src="./imagens/logo-bb.png" alt="Logo Banco do Brasil" class="logo-img">
-            
+            </div>
             <div class="menu">
                 <ul>
                     <li><a href="#">Pra você</a></li>
@@ -28,17 +24,16 @@
                             <button class="btn-conta">Acesse sua conta</button>
                         </div>
                     </li>
-                    
                 </ul>
-            
+            </div>
         </nav>
     </header>
     <main>
         <div class="centro-da-pagina">
             <div class="conteudo">
                 <h1>Crédito do Trabalhador no BB</h1>
-                <p>Quem tem carteira assinada pode</p>
-                <button>Clique aqui e simule a diminuição da sua prestação</button>
+                <p>Quem tem carteira assinada pode aproveitar condições especiais.</p>
+                <button class="btn-simular">Simule a diminuição da sua prestação</button>
             </div>
             <section class="simulador">
                 <h2>Simule a diminuição da sua prestação</h2>
@@ -48,12 +43,16 @@
                         <input type="number" id="valor" name="valor" required>
                     </div>
                     <div>
-                        <label for="prazo">Prazo do empréstimo:</label>
+                        <label for="prazo">Prazo do empréstimo (meses):</label>
                         <input type="number" id="prazo" name="prazo" required>
                     </div>
-                    <button id="btn-simular">Simular</button>
+                    <div>
+                        <label for="pm">Prestação mensal informada:</label>
+                        <input type="number" id="pm" name="pm" required>
+                    </div>
+                    <button id="btn-simular" type="submit">Simular</button>
                 </form>
-                <div id="resultado"></div>
+                <div id="resultado" class="resultado"></div>
             </section>
         </div>
     </main>
@@ -62,7 +61,7 @@
             <img src="./imagens/logo-bb.png" alt="Logo BB" width="25" height="25">
         </div>
         <div class="texto">
-            <p>&copy; 2023 Banco do Brasil</p>
+            <p>&copy; 2023 Banco do Brasil. Todos os direitos reservados.</p>
         </div>
     </footer>
     <script src="script.js"></script>
