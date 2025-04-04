@@ -1,8 +1,11 @@
 /* Garante que o footer fique no final da página */
 html, body {
-    height: 100%; /* Garante que a altura ocupe 100% da janela */
+    height: 100%; /* Garante que o body ocupe toda a altura da tela */
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column; /* Organiza os elementos em uma coluna */
+
 }
 
 @media (max-width: 768px) {
@@ -41,27 +44,29 @@ header {
     position: relative; /* Garante que o menu fique sobre a faixa */
     z-index: 2; /* Coloca o menu acima da faixa amarela */
     color: #003366; /* Azul escuro */
-    padding: 10px 20px;
+    padding: 5px 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: transparent;
+
 }
 
 
 
 .faixa-amarela {
-    position: fixed; /* Garante que a faixa fique fixa no topo */
+    position: fixed;
     top: 0; /* Fixa no topo da página */
     left: 0;
     width: 100%; /* Ocupa toda a largura da página */
-    height: 60px;
+    height: 40px;
     background-color: #fcfc30; /* Fundo amarelo */
     z-index: 1;/* Coloca a faixa abaixo do cabeçalho */;                                     
     display: flex; /* Ativa o Flexbox */
     justify-content: space-between; /* Espaça os itens uniformemente */
     align-items:center;   /* Centraliza verticalmente */
-    padding: 0 20px; /* Adiciona espaçamento lateral */
+    padding: 0 10px; /* Adiciona espaçamento lateral */
     margin: 0; /* Remove qualquer margem */
 
 }
@@ -73,7 +78,7 @@ header {
 /* Menu */
 .menu {
     display: flex; /* Garante que os itens do menu fiquem alinhados */
-    gap: 20px; /* Espaçamento entre os itens do menu */
+    gap: 10px; /* Espaçamento entre os itens do menu */
     z-index: 3; /* Certifique-se de que o menu tenha um z-index maior */
 }
 
@@ -85,7 +90,7 @@ header {
 }
 
 .menu ul li {
-    margin: 0 15px; /* Espaçamento entre os itens */
+    margin: 0 10px; /* Espaçamento entre os itens */
 }
 
 .menu ul li a {
@@ -93,7 +98,7 @@ header {
     text-decoration: none;
     font-weight: bold;
     font-size: 1.125rem; /* Aumenta o tamanho da fonte */
-    padding: 10px 15px; /* Adiciona espaçamento interno */
+    padding: 05px 10px; /* Adiciona espaçamento interno */
 }
 
 .menu ul li a:hover {
@@ -172,6 +177,7 @@ header nav ul li a:hover {
     text-decoration: underline;
 }
 .centro-da-pagina {
+    margin-top: 1px;
     background-image: url('./imagens/trabalhadora-negra.png');
     width: 100%;
     background-size: cover; /* Ajusta a imagem para cobrir toda a div */;
@@ -194,7 +200,8 @@ header nav ul li a:hover {
 
 /* Conteúdo principal */
 main {
-    padding: 20px; /* Adiciona espaçamento interno */
+    flex-grow: 1;
+    padding: 10px; /* Adiciona espaçamento interno */
     flex: 1; /* Faz o main ocupar o espaço restante */
     background-size: contain; /* Ajusta a imagem para caber no main */
     background-position: center top; /* Centraliza a imagem no topo */
@@ -202,12 +209,13 @@ main {
     width: 100%; /* Faz o main ocupar toda a largura */
     flex: 1; /* Faz o main ocupar o espaço restante entre a faixa amarela e o footer */
     display: flex; /* Ativa o Flexbox */
-    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    justify-content: flex-start; /* Centraliza o conteúdo horizontalmente */
     align-items: center; /* Centraliza o conteúdo verticalmente */
     z-index: 0; /* Coloca o main abaixo do cabeçalho e da faixa amarela */
 }
 
 .conteudo {
+    margin-bottom: 5px; /* Reduza a margem inferior */
     text-align: left; /* Alinha o texto à esquerda */
     margin-left: 20px; /* Adiciona um espaçamento à esquerda */
     padding: 10px; /* Adiciona espaçamento interno */
@@ -221,6 +229,7 @@ main h1, main p {
 
 /* Simulador */
 .simulador {
+    margin-top: 5px; /* Reduza a margem superior */
     background: none;
     text-align: left; /* Alinha o texto e os elementos internos à esquerda */
     margin-left: 20px; /* Adiciona um espaçamento à esquerda */
@@ -228,7 +237,8 @@ main h1, main p {
     text-decoration: none;
     font-weight: bold;
     font-size: 1.125rem; /* Aumenta o tamanho da fonte */
-    padding: 10px 15px; /* Adiciona espaçamento interno */
+    padding: 10px; /* Adiciona espaçamento interno */
+    max-width: 400px; /* Define um limite máximo de largura */
 }
 
 
