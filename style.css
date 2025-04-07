@@ -5,7 +5,7 @@ html, body {
     padding: 0;
     display: flex;
     flex-direction: column; /* Organiza os elementos em uma coluna */
-
+    
 }
 
 @media (max-width: 768px) {
@@ -56,23 +56,23 @@ header {
 
 
 .faixa-amarela {
-    position: fixed;
+    position: fixed; /* Garante que a faixa amarela fique acima da imagem */
     top: 0; /* Fixa no topo da página */
     left: 0;
     width: 100%; /* Ocupa toda a largura da página */
     height: 40px;
     background-color: #fcfc30; /* Fundo amarelo */
-    z-index: 1;/* Coloca a faixa abaixo do cabeçalho */;                                     
+    z-index: 1; /* Coloca a faixa amarela acima da imagem */
     display: flex; /* Ativa o Flexbox */
     justify-content: space-between; /* Espaça os itens uniformemente */
-    align-items:center;   /* Centraliza verticalmente */
+    align-items:center;   /* Centraliza 0vrticalmente */
     padding: 0 10px; /* Adiciona espaçamento lateral */
     margin: 0; /* Remove qualquer margem */
-
+    
 }
 
 .logo-img {
-    height: 60px; /* Ajuste o tamanho da logo conforme necessário */
+    height: 20px; /* Ajuste o tamanho da logo conforme necessário */
 }
 
 /* Menu */
@@ -129,7 +129,7 @@ header {
     position: relative; /* Garante que o menu fique sobre a faixa */
     z-index: 2; /* Coloca o menu acima da faixa amarela */
     color: #003366; /* Azul escuro */
-    padding: 10px 20px;
+    padding: 10px 20px; /* Adiciona espaçamento interno */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -146,7 +146,7 @@ header nav ul {
 }
 
 header nav ul li {
-    margin: 0 15px;
+    margin: 0 15px; /* Espaçamento entre os itens do menu */
 }
 
 header nav ul li a {
@@ -177,41 +177,83 @@ header nav ul li a:hover {
     text-decoration: underline;
 }
 .centro-da-pagina {
-    margin-top: 1px;
-    background-image: url('./imagens/trabalhadora-negra.png');
+    margin-top: 0; /* Remove margem superior */
     width: 100%;
-    background-size: cover; /* Ajusta a imagem para cobrir toda a div */;
-    background-repeat: no-repeat; /* Evita repetição da imagem */
+    height: 100vh; /* Faz a seção ocupar toda a altura da tela */
+    padding: 0px; /* Remove o padding */
     display: flex; /* Ativa o Flexbox */
-    flex-direction: column; /* Organiza os elementos em uma coluna */
-    align-items: flex-start; /* Alinha os itens à esquerda */
-    padding: 10px; /* Adiciona espaçamento interno */
-    gap: 20px; /* Adiciona espaçamento entre os elementos */
-    width: 100%; /* Faz a largura ocupar todo o espaço disponível */
-    margin-left: 0; /* Remove qualquer margem à esquerda */
-    text-align: left; /* Alinha o texto à esquerda *lmente */
-    height: 100vh; /* Faz o main ocupar toda a altura da tela */
-    background-color: #f0f0f0; /* Cor de fundo clara */
-    padding: 20px; /* Adiciona espaçamento interno */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve para destaque */
-    z-index: 2;
+    flex-direction: row; /* Organiza os elementos em uma linha */
+    justify-content: space-between; /* Espaça os itens uniformemente */
+    padding: 0px; /* Adiciona espaçamento interno */
+    gap: 20px; /* EsADefine a imagem de fundotos ADefine a imagem de fundo /* ADefine a imagem de fundo */
+    background-size: contain; /* Ajusta a imagem para caber completamente */
+    background-position: top; /* Posiciona a imagem no topo */
+    background-repeat: no-repeat; /* Evita repetição da imagem */
+    position: relative; /* Garante que os elementos filhos sejam posicionados em relação a esta seção */
+    z-index: 2; /* Coloca o conteúdo acima da imagem de fundo */
+    position: relative; /* Garante que os elementos fiquem acima da imagem */
+    z-index: 1; /* Coloca o conteúdo acima da imagem de fundo */
+    background-color: none 
+    padding: 15px; /* Adiciona espaçamento interno */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: none; /* Remove a sombra para maior transparência */
+    }
 
+
+.centro-da-pagina::before {
+    content: ''; /* Adiciona uma camada de sobreposição */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adiciona uma sobreposição escura */
+    z-index: 0; /* Coloca a sobreposição abaixo do conteúdo */
+}
+
+.conteudo, .simulador, .resultado {
+    position: relative; /* Garante que os elementos fiquem acima da sobreposição */
+    background-size: cover; /* Ajusta a imagem para cobrir o contêiner */
+    z-index: 3; /* Coloca os elementos acima da imagem de fundo */
+    padding: 15px; /* Adiciona espaçamento interno */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra leve */
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo branco semitransparente para destacar o conteúdo */
+    width: 90%; /* Faz os elementos ocuparem 90% da largura */
+    max-width: 400px; /* Define uma largura máxima */
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+.simulador, .resultado {
+    margin-top: 10px; /* Adiciona espaçamento entre os elementos */
+}
+
+.conteudo, .simulador {
+    background-color: transparent; /* Remove o fundo branco semitransparente */
+    box-shadow: none; /* Remove a sombra para maior transparência */
 }
 
 /* Conteúdo principal */
 main {
-    flex-grow: 1;
-    padding: 10px; /* Adiciona espaçamento interno */
-    flex: 1; /* Faz o main ocupar o espaço restante */
-    background-size: contain; /* Ajusta a imagem para caber no main */
-    background-position: center top; /* Centraliza a imagem no topo */
+    
+     position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative; /* Garante que o conteúdo do main fique acima da imagem */
+    z-index: 1; /* Coloca o conteúdo acima da imagem de fundo */
+    background-image: url('./imagens/mae-filha.jpg'); /* Define a imagem de fundo */
+    background-size: cover; /* Faz a imagem cobrir toda a largura */
+    background-position: center; /* Centraliza a imagem */
     background-repeat: no-repeat; /* Evita repetição da imagem */
-    width: 100%; /* Faz o main ocupar toda a largura */
-    flex: 1; /* Faz o main ocupar o espaço restante entre a faixa amarela e o footer */
-    display: flex; /* Ativa o Flexbox */
-    justify-content: flex-start; /* Centraliza o conteúdo horizontalmente */
-    align-items: center; /* Centraliza o conteúdo verticalmente */
-    z-index: 0; /* Coloca o main abaixo do cabeçalho e da faixa amarela */
+    z-index: 0; /* Mantém a imagem no fundo */
+    box-shadow: none; /* Remove qualquer sombra */
+  }
+  
+  .main img {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 .conteudo {
@@ -219,41 +261,51 @@ main {
     text-align: left; /* Alinha o texto à esquerda */
     margin-left: 20px; /* Adiciona um espaçamento à esquerda */
     padding: 10px; /* Adiciona espaçamento interno */
-    width: 100%; /* Garante que a largura ocupe todo o espaço disponível */
+    width: 48%; /* Faz o conteúdo ocupar 48% da largura */
+    max-width: 400px; /* Define uma largura máxima */
+    text-align: left; /* Alinha o texto à esquerda */
+    margin: 0; /* Remove margens extras */
 }
 
 main h1, main p {
-    color: #003366; /* Azul escuro */
+    color:#fcfc30; /* Azul escuro */
 }
 
 
 /* Simulador */
 .simulador {
-    margin-top: 5px; /* Reduza a margem superior */
+    margin-top: 0px; /* Reduza a margem superior */
     background: none;
     text-align: left; /* Alinha o texto e os elementos internos à esquerda */
-    margin-left: 20px; /* Adiciona um espaçamento à esquerda */
+    margin-left: 10px; /* Adiciona um espaçamento à esquerda */
     color: black; /* Azul escuro */
     text-decoration: none;
     font-weight: bold;
     font-size: 1.125rem; /* Aumenta o tamanho da fonte */
-    padding: 10px; /* Adiciona espaçamento interno */
-    max-width: 400px; /* Define um limite máximo de largura */
+    padding: 0px; /* Adiciona espaçamento interno */
+    position: relative; /* Garante que o simulador fique acima da sobreposição */
+    z-index: 1; /* Coloca o simulador acima da sobreposição */
+    background-color: transparent; /* Remove o fundo branco semitransparente */
+    padding: 15px; /* Adiciona espaçamento interno */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: none; /* Remove a sombra */
+    text-align: left; /* Alinha o texto à esquerda */
+    margin: 0; /* Remove margens extras */
 }
 
 
 .simulador label {
     margin-bottom: 10px;
     font-weight: bold;
-    color: #003366; /* Azul escuro */
+    color: #FFD700; /* Azul escuro */
 }
 
 .simulador input {
     width: 80%; /* Define a largura como 80% do contêiner pai */
-    max-width: 300px; /* Define um limite máximo de largura */
+    max-width: 400px; /* Define um limite máximo de largura */
 
-    padding: 10px;
-    margin-bottom: 15px;
+    padding: 0px;
+    margin-bottom: 2px;
     border: 1px solid #ddd;
     border-radius: 5px;
 }
@@ -285,13 +337,15 @@ footer {
 
 .resultado {
     background-color: #fcfc30; /* Cor amarela */
-    padding: 20px; /* Espaçamento interno */
+    padding: 0px; /* Espaçamento interno */
+    width: 100%; /* Faz o resultado ocupar toda a largura */
+    width:  400px; /* Define um limite máximo de largura */
     border-radius: 8px; /* Bordas arredondadas */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve para destaque */
     margin-top: 20px; /* Espaçamento acima do contêiner */
     color: #003366; /* Azul escuro para o texto */
     font-weight: bold; /* Texto em negrito */
-}
+    }
 /* Estilo para o link no resultado */
 .resultado a {
     color: #003366; /* Azul escuro */
@@ -305,7 +359,7 @@ footer {
     text-decoration: none;
     font-weight: bold;
     font-size: 1.125rem; /* Aumenta o tamanho da fonte */
-    padding: 10px 15px; /* Adiciona espaçamento interno */
+    padding: 0px 0px; /* Adiciona espaçamento interno */
 }
 footer .logo img {
     width: 10px;

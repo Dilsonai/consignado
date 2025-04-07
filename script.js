@@ -26,7 +26,7 @@ document.getElementById('btn-simular').addEventListener('click', (e) => {
     // Cálculo da taxa de juros mensal com base nos valores fornecidos
     let taxaCalculada = 0.01; // Chute inicial para a taxa
     const maxIteracoes = 1000; // Limite de iterações para evitar loops infinitos
-    const tolerancia = 0.0001; // Tolerância para o cálculo da taxa
+    const tolerancia = 0.000001; // Tolerância para o cálculo da taxa (maior precisão)
     let iteracoes = 0;
 
     while (iteracoes < maxIteracoes) {
@@ -39,7 +39,7 @@ document.getElementById('btn-simular').addEventListener('click', (e) => {
         }
 
         // Ajusta a taxa com base na diferença
-        taxaCalculada += diferenca > 0 ? 0.00001 : -0.00001; // Incremento menor para maior precisão
+        taxaCalculada += diferenca > 0 ? 0.0001 : -0.0001; // Incremento ajustado para maior precisão
         iteracoes++;
     }
 
@@ -58,23 +58,50 @@ document.getElementById('btn-simular').addEventListener('click', (e) => {
 
     console.log('Diferença entre a prestação informada e a prestação com taxa de 2,65% a.m.:', diferencaPrestacao.toFixed(2));
 
-   // Exibindo o resultado no elemento #resultado
-document.getElementById('resultado').innerHTML = `
-<h2>Resultado da Simulação</h2>
-<div style="margin-bottom: 15px;">
-    <span><strong>Valor do empréstimo:</strong> R$ ${valor.toFixed(2)}</span> |
-    <span><strong>Prazo do empréstimo:</strong> ${prazo} meses</span> |
-    <span><strong>Prestação mensal informada:</strong> R$ ${pm.toFixed(2)}</span>
-</div>
-<div style="margin-bottom: 15px;">
-    <span><strong>Taxa de juros calculada:</strong> ${(taxaCalculada * 100).toFixed(2)}% a.m.</span> |
-    <span><strong>Prestação mensal com taxa de 2,65% a.m.:</strong> R$ ${prestacaoPadrao.toFixed(2)}</span> |
-    <span><strong>Diferença entre as prestações:</strong> R$ ${diferencaPrestacao.toFixed(2)}</span>
-</div>
-<div style="margin-top: 20px;">
-    <small>Sujeita a variação de taxa e aprovação de crédito. Consulte mais informações e abra a sua 
-    <a href="https://www.bb.com.br/site/pra-voce/contas/conta-corrente/" target="_blank">Banco do Brasil</a>.</small>
-</div>
-`;
+    // Mensagem personalizada com base na diferença
+    let mensagemEconomia = '';
+    if (diferencaPrestacao > 0) {
+        mensagemEconomia = `
+            <p style="color: green; font-weight: bold;">
+                Sua economia seria de R$ ${diferencaPrestacao.toFixed(2)} se a taxa fosse 2,65% a.m.
+            </p>
+        `;
+    } else if (diferencaPrestacao < 0) {
+        mensagemEconomia = `
+            <p style="color: blue; font-weight: bold;">
+                Sua taxa de juros atual está menor! 
+            </p>
+        `;
+    } else {
+        mensagemEconomia = `
+            <p style="color: orange; font-weight: bold;">
+                Sua prestação está exatamente igual à calculada com a taxa de 2,65% a.m.
+            </p>
+        `;
+    }
+
+    // Exibindo o resultado no elemento #resultado
+    document.getElementById('resultado').innerHTML = `
+        <h2>Resultado da Simulação</h2>
+        <div style="margin-bottom: 0px;">
+            <span><strong>Valor do empréstimo:</strong> R$ ${valor.toFixed(2)}</span> |
+            <span><strong>Prazo do empréstimo:</strong> ${prazo} meses</span> |
+            <span><strong>Prestação mensal informada:</strong> R$ ${pm.toFixed(2)}</span>
+        </div>
+        <div style="margin-bottom: 5px;">
+            <span><strong>Taxa de juros calculada:</strong> ${(taxaCalculada * 100).toFixed(2)}% a.m.</span> |
+            <span><strong>Prestação mensal com taxa de 2,65% a.m.:</strong> R$ ${prestacaoPadrao.toFixed(2)}</span> |
+            <span><strong>Diferença entre as prestações:</strong> R$ ${diferencaPrestacao.toFixed(2)}</span>
+        </div>
+        ${mensagemEconomia}
+        <div style="margin-top: 0px;">
+            <small>Sujeita a variação de taxa e aprovação de crédito.</small>
+            <br>
+            <button onclick="window.open('https://www.bb.com.br/site/pra-voce/contas/conta-corrente/', '_blank')" 
+                style="background-color: #003366; color: #FFFFFF; padding: 10px 20px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">
+                Abra a sua conta Banco do Brasil clique aqui!
+            </button>
+        </div>
+    `;
     console.log('Resultado exibido com sucesso.');
 });
